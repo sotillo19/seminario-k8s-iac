@@ -12,7 +12,7 @@
 #   project: default
 #   source:
 #     path: 1-argocd-apps/apps-base/helloworld
-#     repoURL: git@github.com:arsahosting/seminario-k8s-iac.git
+#     repoURL: https://github.com/arsahosting/seminario-k8s-iac.git
 #     targetRevision: HEAD
 #   syncPolicy:
 #     automated:
@@ -35,7 +35,7 @@
 #   project: default
 #   source:
 #     path: 1-argocd-apps/apps-base/k8s-crds-postgresha
-#     repoURL: git@github.com:arsahosting/seminario-k8s-iac.git
+#     repoURL: https://github.com/arsahosting/seminario-k8s-iac.git
 #     targetRevision: HEAD
 #   syncPolicy:
 #     automated:
@@ -55,7 +55,7 @@
 #   project: default
 #   source:
 #     path: 1-argocd-apps/apps-base/k8s-config-postgresha
-#     repoURL: git@github.com:arsahosting/seminario-k8s-iac.git
+#     repoURL: https://github.com/arsahosting/seminario-k8s-iac.git
 #     targetRevision: HEAD
 #   syncPolicy:
 #     automated:
