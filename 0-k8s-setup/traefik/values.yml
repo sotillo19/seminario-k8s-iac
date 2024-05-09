@@ -1,0 +1,46 @@
+
+deployment:
+  kind: DaemonSet
+
+logs:
+  general:
+    # By default, the logs use a text format (common), but you can
+    # also ask for the json format in the format option
+    # format: json
+    # By default, the level is set to ERROR. Alternative logging levels are DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
+    level: WARN
+    # level: DEBUG
+
+ports:
+  web:
+    port: 8000
+    exposedPort: 80
+    protocol: TCP
+    redirectTo:
+      port: websecure
+  websecure:
+    port: 8443
+    exposedPort: 443
+    protocol: TCP
+    http3:
+      enabled: false
+    tls:
+      enabled: true
+      options: ""
+      certResolver: ""
+      domains: []
+    middlewares: []
+  postgresqlrw:
+    port: 5432
+    exposedPort: 5432
+    protocol: TCP
+  postgresqlro:
+    port: 5433
+    exposedPort: 5433
+    protocol: TCP
+
+service:
+  enabled: true
+  type: LoadBalancer
+  spec:
+    externalTrafficPolicy: Local

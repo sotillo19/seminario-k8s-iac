@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: masterapp-base
+  namespace: argocd
+spec:
+  destination:
+    namespace: apps-base
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: 1-argocd-apps/masterapp-base
+    repoURL: git@github.com:arsahosting/seminario-k8s-iac.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      selfHeal: true

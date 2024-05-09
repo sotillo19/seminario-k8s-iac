@@ -1,0 +1,66 @@
+## WEB APP DEPLOYMENT ##
+
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: base-helloworld
+#   namespace: argocd
+# spec:
+#   destination:
+#     namespace: apps-base
+#     server: https://kubernetes.default.svc
+#   project: default
+#   source:
+#     path: 1-argocd-apps/apps-base/helloworld
+#     repoURL: git@github.com:arsahosting/seminario-k8s-iac.git
+#     targetRevision: HEAD
+#   syncPolicy:
+#     automated:
+#       selfHeal: true
+
+
+## POSTGRES HA ##
+
+# ---
+
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: base-k8s-crds-postgresha
+#   namespace: argocd
+# spec:
+#   destination:
+#     namespace: apps-base
+#     server: https://kubernetes.default.svc
+#   project: default
+#   source:
+#     path: 1-argocd-apps/apps-base/k8s-crds-postgresha
+#     repoURL: git@github.com:arsahosting/seminario-k8s-iac.git
+#     targetRevision: HEAD
+#   syncPolicy:
+#     automated:
+#       selfHeal: true
+
+# ---
+
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: base-k8s-config-postgresha
+#   namespace: argocd
+# spec:
+#   destination:
+#     namespace: apps-base
+#     server: https://kubernetes.default.svc
+#   project: default
+#   source:
+#     path: 1-argocd-apps/apps-base/k8s-config-postgresha
+#     repoURL: git@github.com:arsahosting/seminario-k8s-iac.git
+#     targetRevision: HEAD
+#   syncPolicy:
+#     automated:
+#       selfHeal: true
+
+
+## EVEN OTHER MASTERAPPS ##
+

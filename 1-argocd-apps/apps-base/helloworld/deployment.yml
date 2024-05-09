@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: base-helloworld
+  namespace: apps-base
+spec:
+  revisionHistoryLimit: 2
+  replicas: 4
+  selector:
+    matchLabels:
+      app: base-helloworld
+  template:
+    metadata:
+      labels:
+        app: base-helloworld
+    spec:
+      containers:
+      - name: base-helloworld
+        image: base-helloworld-image
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3

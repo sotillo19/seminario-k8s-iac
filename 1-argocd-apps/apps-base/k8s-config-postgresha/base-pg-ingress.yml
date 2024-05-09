@@ -1,0 +1,27 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: postgresqlrw
+  namespace: default
+spec:
+  entryPoints:
+  - postgresqlrw
+  routes:
+  - match: HostSNI(`*`)
+    services:
+    - name: base-postgresha-cluster
+      port: 5432
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: postgresqlro
+  namespace: default
+spec:
+  entryPoints:
+  - postgresqlro
+  routes:
+  - match: HostSNI(`*`)
+    services:
+    - name: base-postgresha-cluster-repl
+      port: 5432
