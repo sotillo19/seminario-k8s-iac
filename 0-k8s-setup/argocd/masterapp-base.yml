@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     path: 1-argocd-apps/masterapp-base
-    repoURL: https://github.com/arsahosting/seminario-k8s-iac.git
+    repoURL: https://github.com/sotillo19/seminario-k8s-iac.git
     targetRevision: HEAD
   syncPolicy:
     automated:
